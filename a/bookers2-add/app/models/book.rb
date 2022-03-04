@@ -1,6 +1,9 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  # 並び替え機能追加のため、以下のアソシエーションを追記
+  # favoritesモデルを介してuserモデルのデータを持ってくるための記述
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :book_comments, dependent: :destroy
   
   validates :title,presence:true
