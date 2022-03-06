@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   # 並び替え機能追加のため、以下のアソシエーションを追記
   # favoritesモデルを介してuserモデルのデータを持ってくるための記述
   has_many :favorited_users, through: :favorites, source: :user
+  # has_many :week_favorites, -> { where(created_at: ((Time.current.at_end_of_day - 6.day).at_beginning_of_day)..(Time.current.at_end_of_day)) }, class_name: 'Favorite'
   has_many :book_comments, dependent: :destroy
   
   validates :title,presence:true
