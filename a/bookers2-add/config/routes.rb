@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
   # resources :searches, only: [:search]
   
+  resources :chats, only: [:create,:show]
+  
   # devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
