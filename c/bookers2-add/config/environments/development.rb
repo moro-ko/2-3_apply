@@ -77,4 +77,17 @@ Rails.application.configure do
   
   config.hosts << "ab2ae6b2c7664445935e7855e6cac315.vfs.cloud9.us-east-1.amazonaws.com"
   
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            'メルアド',#Gmailのアドレス
+    password:             'アプリパスワード',#アプリpass
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+  
 end
