@@ -21,6 +21,9 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  has_many :user_groups, dependent: :destroy
+  has_many :groups, through: :user_groups
+  
 # バリデーション
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
