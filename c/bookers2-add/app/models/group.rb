@@ -1,4 +1,6 @@
 class Group < ApplicationRecord
+    has_one_attached :image
+    
     # アソシエーション
     has_many :user_groups, dependent: :destroy
     has_many :users, through: :user_groups
@@ -7,5 +9,8 @@ class Group < ApplicationRecord
     validates :name, presence: true
     validates :introduction, presence: true
     
-    has_one_attached :image
+    def get_image
+    (image.attached?) ? image : 'no_image.jpg'
+    end
+
 end

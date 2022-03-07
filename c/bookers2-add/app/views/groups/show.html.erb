@@ -23,7 +23,7 @@
         </thead>
         <tbody>
           <tr>
-            <td></td>
+            <td><%= image_tag @group.get_image, size: '50x50' %></td>
             <!--<td><%#= attachment_image_tag(@group, :image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>-->
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
